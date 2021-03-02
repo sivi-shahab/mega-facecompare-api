@@ -14,18 +14,14 @@
  * permissions and limitations under the License.
  */
 
-package com.exadel.frs.core.trainservice.repository;
+package com.exadel.frs.commonservice.repository;
 
-import com.exadel.frs.commonservice.entity.Model;
-import com.exadel.frs.commonservice.enums.ModelType;
-import java.util.Optional;
+import com.exadel.frs.commonservice.entity.InstallInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional("tmPg")
-public interface ModelRepository extends JpaRepository<Model, Long> {
+public interface InstallInfoRepository extends JpaRepository<InstallInfo, String> {
 
-    Optional<Model> findByApiKeyAndType(String apiKey, ModelType type);
-}
+    InstallInfo findTopByOrderByInstallGuid();
+} 
