@@ -5,11 +5,9 @@ import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import static com.exadel.frs.commonservice.system.global.Constants.DET_PROB_THRESHOLD;
-import static com.exadel.frs.core.trainservice.system.global.Constants.*;
+import static com.exadel.frs.core.trainservice.system.global.Constants.IMAGE_WITH_ONE_FACE_DESC;
 
 @Data
 @NoArgsConstructor
@@ -24,24 +22,4 @@ public class VerifySourceTargetRequest {
     @NotNull
     @ApiParam(value = "Target:" + IMAGE_WITH_ONE_FACE_DESC, required = true)
     private String targetImageBase64;
-
-    @Min(value = 0, message = LIMIT_MIN_DESC)
-    @ApiParam(value = LIMIT_DESC)
-    private Integer limit;
-
-    @JsonProperty(DET_PROB_THRESHOLD)
-    @ApiParam(value = DET_PROB_THRESHOLD_DESC)
-    private Double detProbThreshold;
-
-    @JsonProperty(FACE_PLUGINS)
-    @ApiParam(value = FACE_PLUGINS_DESC)
-    private String facePlugins;
-
-    @JsonProperty(STATUS)
-    @ApiParam(value = STATUS_DESC)
-    private Boolean status;
-
-    public Integer getLimit() {
-        return limit == null ? 0 : limit;
-    }
 }
