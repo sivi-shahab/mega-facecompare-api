@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EmbeddingSimilarityResult {
 
-    private String subjectName;
+    private String subject;
     private float similarity;
 }
