@@ -1,5 +1,6 @@
-package com.exadel.frs.commonservice.system.liquibase;
+package com.exadel.frs.commonservice.system.liquibase.customchange;
 
+import com.exadel.frs.commonservice.system.liquibase.FacesToSubjectMigrationProcessor;
 import liquibase.change.custom.CustomTaskChange;
 import liquibase.database.Database;
 import liquibase.exception.CustomChangeException;
@@ -14,7 +15,7 @@ import org.springframework.util.ReflectionUtils;
 import java.util.Optional;
 
 @Slf4j
-public class FacesToSubjectsMigration implements CustomTaskChange {
+public class FacesToSubjectsMigrationCustomChange implements CustomTaskChange {
 
     private ResourceAccessor resourceAccessor;
     private FacesToSubjectMigrationProcessor processor;

@@ -1,4 +1,4 @@
-package com.exadel.frs.commonservice.entity;
+package com.exadel.frs.commonservice.projection;
 
 import java.util.Date;
 import lombok.Value;

@@ -1,5 +1,6 @@
-package com.exadel.frs.commonservice.entity;
+package com.exadel.frs.commonservice.projection;
 
+import com.exadel.frs.commonservice.entity.Embedding;
 import java.util.UUID;
 import lombok.Value;
 
