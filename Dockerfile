@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.7
 #
 # compreface-api — Spring Boot (modul java/api + java/common), non-root.
-# Build context: root repo  (docker build -f services/compreface-api/Dockerfile .)
-# Ignore file  : services/compreface-api/Dockerfile.dockerignore (BuildKit)
+# Build context: root repo ini  (docker build -t mega/compreface-api:<versi> .  — atau scripts/build.sh)
+# Ignore file  : .dockerignore
 #
 # Build arg ND4J_CLASSIFIER: linux-x86_64 (default, paling kompatibel) |
 #   linux-x86_64-avx2 | linux-x86_64-avx512 — lihat dev/.env upstream.
@@ -16,7 +16,6 @@ ARG ND4J_CLASSIFIER=linux-x86_64
 WORKDIR /workspace/compreface
 COPY java/pom.xml ./
 COPY java/common/pom.xml common/
-COPY java/admin/pom.xml admin/
 COPY java/api/pom.xml api/
 RUN --mount=type=cache,target=/root/.m2 \
     mvn -B -q -pl api -am dependency:go-offline -Dnd4j.classifier=${ND4J_CLASSIFIER} -Dmaven.gitcommitid.skip || true
